@@ -1,0 +1,23 @@
+create table cliente(
+  codcli integer, nome varchar(20), rua varchar(30), cidade varchar(10));
+CREATE table agencia(
+  codagen INTEGER, nomeagen varchar(20), cidadeagen varchar(20), ativo integer,
+  PRIMARY key(codagen));
+CREATE TABLE conta(
+  numeroconta integer, codagen integer, saldo integer,
+  primary key(numeroconta),
+  FOREIGN key (codagen) REFERENCES agencia (codagen));
+create table depositante(
+  codcli integer, numeroconta integer);
+ALTER TABLE agencia ALTER COLUMN nomeagen type VARCHAR(30);
+ALTER TABLE conta ALTER COLUMN saldo type DECIMAL(9,2);
+insert into agencia values (1, 'Bradesco', 'cba',5),
+(2, 'Banco do Brasil', 'sp',7),
+(3, 'santander', 'sorriso',3),
+(4, 'inter', 'rj',6),
+(5, 'Bradesco', 'cba',9);
+insert into cliente values (1, 'cleber', 'L', 'cba'),
+(2, 'cleiton', 'j', 'sp'),
+(3, 'clayson', 'k', 'cba'),
+(4, 'clauan', 'm', 'sorriso'),
+(5, 'clauder', 'a', 'rj');
