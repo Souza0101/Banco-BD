@@ -1,0 +1,29 @@
+create TABLE cliente(
+  codcli integer,
+  nome varchar(20),
+  rua varchar(40),
+  cidade varchar(20),
+  PRIMARY KEY (codcli));
+create table agencia(
+  codagen integer,
+  nomeagen varchar(20),
+  cidadeagen varchar(20),
+  ativo varchar(10),
+  PRIMARY KEY (codagen));
+  CREATE table conta(
+    Numeroconta integer,
+    codagen integer,
+    saldo decimal(7,2),
+    PRIMARY KEY (Numeroconta),
+    FOREIGN key (codagen) REFERENCES agencia (codagen));
+    CREATE TABLE depositante(
+      codcli integer,
+      Numeroconta integer,
+      PRIMARY key (codcli, Numeroconta));
+      ALTER TABLE cliente
+        add telefone integer,
+        add bairro varchar(20);
+        alter table agencia
+        alter column nomeagen type varchar(30);
+        alter table conta
+		ALTER COLUMN saldo type decimal(9,2);
